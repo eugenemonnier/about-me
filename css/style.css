@@ -1,35 +1,50 @@
 body {
-  background-color: #A5ACAF;
+  background-color: #1a3b60;
 }
-h1 {
-  background-color: #002145; 
-  color: #66C010; 
-  border-radius: 15px; 
+header {
   text-align: center;
+  font-size: large;
 }
-a {
+ul {
+  padding: 10px;
+  background: rgba(184,172,127,0.75);
+  margin-top: 15px;
+}
+li {
+  display: inline;
+  padding: 0px 10px 0px 10px;
+}
+a  {
   text-decoration: none;
-  color: #002145;
+  color: #1a3b60;
 }
 a:hover {
-  border-bottom: 2px solid #002145;
-}
-p {
-  border-radius: 15px;
-  border: 2px solid #002145;
-  text-align: center;
-  padding: 4px;
-  width: 25%;
-  margin: 0 auto;
-  padding: 1px;
+  border-bottom: 2px solid #1a3b60;
 }
 footer {
   clear: both;
   text-align: center;
   padding: 0;
-  color: #002145;
-  font-size: 0.75em;
+  color: rgba(184,172,127);
+  font-size: 0.9em;
   vertical-align: middle;
   position: fixed;
   bottom: 10px;
   width: 100%;
+}
+  img {
+    width: 250px;
+    display: block;
+    margin: 15px auto 0px;
+    border-radius: 50%;
+    border: 2px solid black;
+  }
+  article {
+    font-size: 20px;
+    max-width: 500px;
+    padding: 20px;
+    margin: 30px auto;
+    background-color: rgba(200,200,200,0.25);
+    border-radius: 15px;
+    line-height: 25px;
+  }

@@ -88,11 +88,13 @@ if ((beerO_Clock.toLowerCase() === 'y' || beerO_Clock.toLowerCase() === 'yes') &
     && (areYouCool.toLowerCase() === 'y' || areYouCool.toLowerCase() === 'yes')) {
       alert('You know, ' + username + '. You are alright in my book.');
     } else if ((beerO_Clock.toLowerCase() === 'n' || beerO_Clock.toLowerCase() === 'no') && (areYouCool.toLowerCase() === 'n' || areYouCool.toLowerCase() === 'no')) {
-      alert('Well that explains it... Bye!');
+      alert('Well that explains it... Bye ' + username + '!');
     } else if ((beerO_Clock.toLowerCase() === 'y' || beerO_Clock.toLowerCase() === 'yes') && (areYouCool.toLowerCase() === 'n' || areYouCool.toLowerCase() === 'no')) {
-      alert('Oh... You know, I just remember I\'ve got this thing I\'ve got to do right now... Bye!');
+      alert('Oh... You know, I just remember I\'ve got this thing I\'ve got to do right now... Bye ' + username + '!');
     } else if (drunk === true && (areYouCool.toLowerCase() === 'n' || areYouCool.toLowerCase() === 'no')) {
-      alert('Uh huh. Sure you don\'t.');
+      alert('Uh huh. Sure you don\'t, ' + username + '.');
+    } else if ((beerO_Clock.toLowerCase() === 'n' || beerO_Clock.toLowerCase() === 'no') && (areYouCool.toLowerCase() === 'y' || areYouCool.toLowerCase() === 'yes')) {
+      alert('I just can\'t figure you out, ' + username + '.');
     } else {
       alert('Ok, ' + username +'. You\'re going to be alright. Just sit right down here and I will call 911');
     }
