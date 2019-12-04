@@ -1,13 +1,13 @@
 body {
-  background-color: #1a3b60;
+  background-color: #1a3b60; /* color picked from suit portion of profile pic */
 }
 header {
   text-align: center;
   font-size: large;
 }
 ul {
-  padding: 10px;
-  background: rgba(184,172,127,0.75);
+  padding: 10px; 
+  background: rgba(184,172,127,0.75);  /* color picked from tie portion of profile pic */
   margin-top: 15px;
 }
 li {
@@ -19,13 +19,13 @@ a  {
   color: #1a3b60;
 }
 a:hover {
-  border-bottom: 2px solid #1a3b60;
+  border-bottom: 2px solid #1a3b60; /* color picked from suit portion of profile pic */
 }
 footer {
   clear: both;
   text-align: center;
   padding: 0;
-  color: rgba(184,172,127);
+  color: rgba(184,172,127); /* color picked from tie portion of profile pic */
   font-size: 0.9em;
   vertical-align: middle;
   position: fixed;
