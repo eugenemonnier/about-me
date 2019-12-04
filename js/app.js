@@ -4,6 +4,7 @@
 var drunk = false;
 var randomNum = 50; //set randomNum to 50 for testing purposes
 var i = 0;
+var mindGameLink = document.getElementById('mind'); //make Read My Mind link a variable
 
 // Greet the user
 var greeting = 'Hello, friend.'
@@ -101,38 +102,43 @@ console.log('The user\'s name is ' + username);
 //       alert('Ok, ' + username +'. You\'re going to be alright. Just sit right down here and I will call 911');
 //     }
 
-//     if (/*linked click*/) {
-      randomNum = Math.floor(Math.random() * 10);
-      var guess = prompt('Guess a number between 1 & 10. You have 4 guesses.');
-      if (guess == randomNum) {
-        alert('Good guess ' + username + '! Have you been tested for psychic abilities?');
-        console.log(guess + ' ' + randomNum + ' ' + i + 'psychic');
-      } else if (guess != randomNum) {
-        for(i = 1; i <= 4; i++) {
-          console.log(guess + ' ' + randomNum + ' ' + i + 'base');
-          if ((guess == randomNum) && (i < 4)) {
-            console.log(guess + ' ' + randomNum + ' ' + i + 'winner');
-            alert('Ding! Ding! Ding! We have a winner!')
-            break;
-          } else if ((guess > randomNum)  && (i < 4)) {
-            console.log(guess + ' ' + randomNum + ' ' + i + 'lower');
-            guess = prompt('That\'s not it. The number I am looking for is lower. You are on attempt ' + (i + 1) + '.');
-          } else if ((guess < randomNum)  && (i < 4)) {
-            console.log(guess + ' ' + randomNum + ' ' + i + ' higher');
-            guess = prompt('That\'s not it. The number I am looking for is higher. You are on attempt ' + (i + 1) + '.');
-          } else if ((guess == randomNum) && (i >= 4)) {
-            console.log(guess + ' ' + randomNum + ' ' + i + ' nick');
-            alert('You got it in just the nick of time!');
-          } else if ((guess != randomNum) && (i >= 4)) {
-            console.log(guess + ' ' + randomNum + ' ' + i + ' fortress');
-            alert('Valiant effort but you were unable to penetrate my mind fortress!');
-          } else if (isNaN(guess)) {
-            console.log(guess + ' ' + randomNum + ' ' + i + 'bad player');
-              alert('That\'s not a number! No game for you!');
-              break;
-          } else {
-            console.log(guess + ' ' + randomNum + ' ' + i + ' battleship');
-            alert('You broke my battleship! Please tell me how you did that!');
-          }
-        }
+// add event listener to mindGameLink so when it is clicked the function mindGame runs
+mindGameLink.addEventListener('click', mindGame); 
+
+// mindGame function with random number generator
+function mindGame() {
+  randomNum = Math.floor(Math.random() * 10);
+  var guess = prompt('Guess a number between 1 & 10. You have 4 guesses.');
+  if (guess == randomNum) {
+    alert('Good guess ' + username + '! Have you been tested for psychic abilities?');
+    console.log(guess + ' ' + randomNum + ' ' + i + 'psychic');
+  } else if (guess != randomNum) {
+    for(i = 1; i <= 4; i++) {
+      console.log(guess + ' ' + randomNum + ' ' + i + 'base');
+      if ((guess == randomNum) && (i < 4)) {
+        console.log(guess + ' ' + randomNum + ' ' + i + 'winner');
+        alert('Ding! Ding! Ding! We have a winner!')
+        break;
+      } else if ((guess > randomNum)  && (i < 4)) {
+        console.log(guess + ' ' + randomNum + ' ' + i + 'lower');
+        guess = prompt('That\'s not it. The number I am looking for is lower. You are on attempt ' + (i + 1) + '.');
+      } else if ((guess < randomNum)  && (i < 4)) {
+        console.log(guess + ' ' + randomNum + ' ' + i + ' higher');
+        guess = prompt('That\'s not it. The number I am looking for is higher. You are on attempt ' + (i + 1) + '.');
+      } else if ((guess == randomNum) && (i >= 4)) {
+        console.log(guess + ' ' + randomNum + ' ' + i + ' nick');
+        alert('You got it in just the nick of time!');
+      } else if ((guess != randomNum) && (i >= 4)) {
+        console.log(guess + ' ' + randomNum + ' ' + i + ' fortress');
+        alert('Valiant effort but you were unable to penetrate my mind fortress! I was thinking of the number ' + randomNum + );
+      } else if (isNaN(guess)) {
+        console.log(guess + ' ' + randomNum + ' ' + i + 'bad player');
+          alert('That\'s not a number! No game for you!');
+          break;
+      } else {
+        console.log(guess + ' ' + randomNum + ' ' + i + ' battleship');
+        alert('You broke my battleship! Please tell me how you did that!');
       }
+    }
+  }
+}
