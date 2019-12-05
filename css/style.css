@@ -5,10 +5,17 @@ header {
   text-align: center;
   font-size: large;
 }
-ul {
+ul, ol {
   padding: 10px; 
   background: rgba(184,172,127,0.75);  /* color picked from tie portion of profile pic */
   margin-top: 15px;
+}
+ol {
+  line-height: 20px;
+  text-align: center;
+  font-size: large;
+  margin-bottom: 20px;
+  color: #1a3b60;
 }
 li {
   display: inline;
@@ -16,20 +23,19 @@ li {
 }
 a  {
   text-decoration: none;
-  color: #1a3b60;
+  color: #1a3b60; /* color picked from suit portion of profile pic */
 }
 a:hover {
   border-bottom: 2px solid #1a3b60; /* color picked from suit portion of profile pic */
 }
 footer {
-  clear: both;
   text-align: center;
   padding: 0;
   color: rgba(184,172,127); /* color picked from tie portion of profile pic */
   font-size: 0.9em;
   vertical-align: middle;
-  position: fixed;
-  bottom: 10px;
+  position: absolute;
+  bottom: -270px;
   width: 100%;
 }
   img {
@@ -47,4 +53,7 @@ footer {
     background-color: rgba(200,200,200,0.25);
     border-radius: 15px;
     line-height: 25px;
+  }
+  strong {
+    font-weight: bolder;
   }
