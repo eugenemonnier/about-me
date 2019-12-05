@@ -6,7 +6,7 @@ var randomNum = 50; //set randomNum to 50 for testing purposes
 var i = 0;
 var soSmart = 0;
 var iLikeBeer = ['sour', 'stout', 'barleywine', 'brown ale', 'porter', 'gose', 'scotch ale'];
-var allMyBeers;
+var allMyBeers = '';
 
 //make Read My Mind & Quiz links variables
 var mindGameLink = document.getElementById('mind');
@@ -230,17 +230,23 @@ function quiz() {
       alert('Oh I do like those... You\'re making me thirsty.');
       soSmart++;
       break;
-    } else if (craftBeer.toLowerCase() !== iLikeBeer[i] && i === 6) {
+    } else if (! iLikeBeer.includes(craftBeer.toLowerCase())) {
+      craftBeer = prompt('That\'s not really one of my favorites. But as long as it is a craft beer, I\'ll give it a shot!');
+    } else if (! iLikeBeer.includes(craftBeer.toLowerCase()) && i === 6) {
       alert('That\'s not really one of my favorites. But as long as it is a craft beer, I\'ll give it a shot!');
     }
   }
   // Adds all values of iLikeBeer to the variable allMyBeers and adds a comma and space between each value 
   for(i = 0; i < iLikeBeer.length; i++) {
-    allMyBeers = iLikeBeer[i] + ', ';
+    if(i === iLikeBeer.length - 2) {
+      allMyBeers = allMyBeers + iLikeBeer[i] + 's, and ';
+    } else{
+    allMyBeers = allMyBeers + iLikeBeer[i] + 's, ';
+    }
   }
   // Removes the trailing space and comma from allMyBeers
   allMyBeers = allMyBeers.substring(0, allMyBeers.length - 2);
-  alert('My (probably not) complete list of favorite beers are ' + allMyBeers + '.'); 
+  alert('My (probably not) complete list of favorite beer types are ' + allMyBeers + '.'); 
 
 
     // Check value of soSmart and provide response based on that value
