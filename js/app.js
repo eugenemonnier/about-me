@@ -6,6 +6,7 @@ var randomNum = 50; //set randomNum to 50 for testing purposes
 var i = 0;
 var soSmart = 0;
 var iLikeBeer = ['sour', 'stout', 'barleywine', 'brown ale', 'porter', 'gose', 'scotch ale'];
+var allMyBeers;
 
 //make Read My Mind & Quiz links variables
 var mindGameLink = document.getElementById('mind');
@@ -113,15 +114,16 @@ mindGameLink.addEventListener('click', mindGame);
 
 // mindGame function with random number generator
 function mindGame() {
-  randomNum = Math.floor(Math.random() * 10);
-  var guess = prompt('Guess a number between 1 & 10. You have 4 guesses.');
-  if (guess == randomNum) {
+  randomNum = Math.round(Math.random() * 10);
+  var guess = parseInt(prompt('Guess a number between 0 & 10. You have 4 guesses.'));
+  if (guess === randomNum) {
     alert('Good guess ' + username + '! Have you been tested for psychic abilities?');
     console.log(guess + ' ' + randomNum + ' ' + i + 'psychic');
   } else if (guess != randomNum) {
     for(i = 1; i <= 4; i++) {
+      guess = parseInt(guess);
       console.log(guess + ' ' + randomNum + ' ' + i + 'base');
-      if ((guess == randomNum) && (i < 4)) {
+      if ((guess === randomNum) && (i < 4)) {
         console.log(guess + ' ' + randomNum + ' ' + i + 'winner');
         alert('Ding! Ding! Ding! We have a winner!')
         break;
@@ -223,15 +225,23 @@ function quiz() {
   }
   // Check value of craftBeer looping through iLikeBeer array and provide response based on that value
   var craftBeer = prompt('"I drink beer. I like beer." Guess a style of beer that I like.')
-  for(i = 0; i < iLikeBeer.length; i++) {
-    if(craftBeer.toLowerCase() === iLikeBeer[i]){
+  for(i = 0; i < 6; i++) {
+    if(iLikeBeer.includes(craftBeer.toLowerCase())){
       alert('Oh I do like those... You\'re making me thirsty.');
       soSmart++;
       break;
     } else if (craftBeer.toLowerCase() !== iLikeBeer[i] && i === 6) {
       alert('That\'s not really one of my favorites. But as long as it is a craft beer, I\'ll give it a shot!');
     }
+  // Adds all values of iLikeBeer to the variable allMyBeers and adds a comma and space between each value 
+  for(i = 0; i < iLikeBeer.length; i++) {
+    allMyBeers = iLikeBeer[i] + ', ';
   }
+  // Removes the trailing space and comma from allMyBeers
+  allMyBeers = allMyBeers.substring(0, allMyBeers.length - 2);
+  alert('My (probably not) complete list of favorite beers are ' + allMyBeers + '.'); 
+
+
     // Check value of soSmart and provide response based on that value
   if (soSmart === 7) {
     alert('You got all 7 answers right! What are you, some kind of stalker, ' + username + '?');
