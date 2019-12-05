@@ -152,23 +152,38 @@ function mindGame() {
 }
 
 // add event listener to quizLink so when it is clicked the function quiz runs
-quizLink.addEventListener('click', quiz); 
+quizLink.addEventListener('click', quiz);
 
 // quiz function with score counter
-function quiz() { 
-  // Check value of military and provide response based on that value
+function quiz() {
+  airForceFun();
+  stationedFun();
+  universityFun();
+  televisionFun();
+  spaceyFun();
+  studentFun();
+  craftBeerFun();
+  allMyBeersFun();
+  soSmartFun();
+}
+
+// Check value of military and provide response based on that value
+function airForceFun(){
   alert('So you think you know me? Let us put that to the test! Aswer yes or no.');
   var military = prompt('I served in the Marine Corps.');
   if (military.toLowerCase() === 'no' || military.toLowerCase() === 'n') {
     alert('Aim high, my friend!');
     soSmart++;
-  } else if (military.toLowerCase() === 'yes' || military.toLowerCase() === 'yes') {
+  } else if (military.toLowerCase() === 'y' || military.toLowerCase() === 'yes') {
     alert('Do I look like a ground pounder to you?');
   } else {
     alert('Follow directions or lose points! You just lost 1');
     soSmart--;
   }
-  // Check value of stationed and provide response based on that value
+}
+// // Check value of stationed and provide response based on that value
+
+function stationedFun(){
   var stationed = prompt('I was stationed in Florida while in the Air Force.');
   if (stationed.toLowerCase() === 'no' || stationed.toLowerCase() === 'n') {
     alert('Yeehaw! You got that one right, partner! It was actually Texas!');
@@ -179,7 +194,10 @@ function quiz() {
       alert('Follow directions or lose points! You just lost 1');
       soSmart--;
   }
-  // Check value of university and provide response based on that value
+}
+// // Check value of university and provide response based on that value
+
+function universityFun(){
   var university = prompt('I studied Electronic Media at UTEP.');
   if (university.toLowerCase() === 'yes' || university.toLowerCase() === 'y') {
     alert('Correct! Go Miners!');
@@ -190,7 +208,10 @@ function quiz() {
     alert('Follow directions or lose points! You just lost 1');
     soSmart--;
   }
-  // Check value of television and provide response based on that value
+}
+// // Check value of television and provide response based on that value
+
+function televisionFun(){
   var television = prompt('Did you know, I\'ve worked in television?');
   if (television.toLowerCase() === 'yes' || television.toLowerCase() === 'y') {
     alert('It is really not as glamorous as it sounds.');
@@ -201,7 +222,10 @@ function quiz() {
     alert('Follow directions or lose points! You just lost 1');
     soSmart--;
   }
-  // Check value of spacey and provide response based on that value
+}
+// // Check value of spacey and provide response based on that value
+
+function spaceyFun(){
   var spacey = prompt('My first program was in C# automating the calibration process for propulsion systems used in inter-galactic space travel.')
   if (spacey.toLowerCase() === 'no' || spacey.toLowerCase() === 'n') {
     alert('Right, it was just for DRABs for old pick-up trucks. But a guy can dream, can\'t he?');
@@ -212,7 +236,10 @@ function quiz() {
     alert('Follow directions or lose points! You just lost 1');
     soSmart--;
   }
-  // Check value of student and provide response based on that value
+}
+// // Check value of student and provide response based on that value
+
+function studentFun(){
   var student = prompt('Now, almost 20 years into my career, I\'m back to being a student at General Assembly, studying software development.');
   if (student.toLowerCase() === 'no' || student.toLowerCase() === 'n') {
     alert('Correct! I almost went to GA, but then I learned how much better Code Fellows is.');
@@ -223,7 +250,10 @@ function quiz() {
     alert('Follow directions or lose points! You just lost 1');
     soSmart--;
   }
-  // Check value of craftBeer looping through iLikeBeer array and provide response based on that value
+}
+// // Check value of craftBeer looping through iLikeBeer array and provide response based on that value
+
+function craftBeerFun(){
   var craftBeer = prompt('"I drink beer. I like beer." Guess a style of beer that I like.')
   for(i = 0; i < 6; i++) {
     if(iLikeBeer.includes(craftBeer.toLowerCase())){
@@ -236,7 +266,9 @@ function quiz() {
       craftBeer = prompt('That\'s not really one of my favorites. But as long as it is a craft beer, I\'ll give it a shot!');
     }
   }
-  // Adds all values of iLikeBeer to the variable allMyBeers and adds a comma and space between each value 
+}
+// // Adds all values of iLikeBeer to the variable allMyBeers and adds a comma and space between each value 
+function allMyBeersFun(){
   for(i = 0; i < iLikeBeer.length; i++) {
     if(i === iLikeBeer.length - 2) {
       allMyBeers = allMyBeers + iLikeBeer[i] + 's, and ';
@@ -244,12 +276,15 @@ function quiz() {
     allMyBeers = allMyBeers + iLikeBeer[i] + 's, ';
     }
   }
+
   // Removes the trailing space and comma from allMyBeers
+
   allMyBeers = allMyBeers.substring(0, allMyBeers.length - 2);
   alert('My (probably not) complete list of favorite beer types are ' + allMyBeers + '.'); 
+}
 
-
-    // Check value of soSmart and provide response based on that value
+//   // Check value of soSmart and provide response based on that value
+function soSmartFun(){
   if (soSmart === 7) {
     alert('You got all 7 answers right! What are you, some kind of stalker, ' + username + '?');
   } else if (soSmart < 7 && soSmart > 3) {
@@ -259,6 +294,6 @@ function quiz() {
   } else if (soSmart <= 0) {
     alert('Your score is... ' + soSmart + '! You don\'t even care! Do you, ' + username + '!');
   } else {
-    alert('Why do you got to go and break my quiz ' + username + '? See me after class.')
+    alert('Why do you got to go and break my quiz ' + username + '? See me after class.');
   }
 }
