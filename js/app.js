@@ -230,10 +230,10 @@ function quiz() {
       alert('Oh I do like those... You\'re making me thirsty.');
       soSmart++;
       break;
+    } else if (! iLikeBeer.includes(craftBeer.toLowerCase()) && i === 5) {
+      alert('That\'s not really one of my favorites. But as long as it is a craft beer, I\'ll give it a shot!');
     } else if (! iLikeBeer.includes(craftBeer.toLowerCase())) {
       craftBeer = prompt('That\'s not really one of my favorites. But as long as it is a craft beer, I\'ll give it a shot!');
-    } else if (! iLikeBeer.includes(craftBeer.toLowerCase()) && i === 6) {
-      alert('That\'s not really one of my favorites. But as long as it is a craft beer, I\'ll give it a shot!');
     }
   }
   // Adds all values of iLikeBeer to the variable allMyBeers and adds a comma and space between each value 
