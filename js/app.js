@@ -4,7 +4,12 @@
 var drunk = false;
 var randomNum = 50; //set randomNum to 50 for testing purposes
 var i = 0;
-var mindGameLink = document.getElementById('mind'); //make Read My Mind link a variable
+var soSmart = 0;
+
+//make Read My Mind & Quiz links variables
+var mindGameLink = document.getElementById('mind');
+var quizLink = document.getElementById('quiz'); 
+
 
 // Greet the user
 var greeting = 'Hello, friend.'
@@ -130,7 +135,7 @@ function mindGame() {
         alert('You got it in just the nick of time!');
       } else if ((guess != randomNum) && (i >= 4)) {
         console.log(guess + ' ' + randomNum + ' ' + i + ' fortress');
-        alert('Valiant effort but you were unable to penetrate my mind fortress! I was thinking of the number ' + randomNum + );
+        alert('Valiant effort but you were unable to penetrate my mind fortress! I was thinking of the number ' + randomNum + '.');
       } else if (isNaN(guess)) {
         console.log(guess + ' ' + randomNum + ' ' + i + 'bad player');
           alert('That\'s not a number! No game for you!');
@@ -140,5 +145,94 @@ function mindGame() {
         alert('You broke my battleship! Please tell me how you did that!');
       }
     }
+  }
+}
+
+// add event listener to quizLink so when it is clicked the function quiz runs
+quizLink.addEventListener('click', quiz); 
+
+// quiz function with score counter
+function quiz() {
+  alert('So you think you know me? Let us put that to the test! Aswer yes or no.');
+  var military = prompt('I served in the Marine Corps.');
+  if (military.toLowerCase() === 'no' || military.toLowerCase() === 'n') {
+    alert('Aim high, my friend!');
+    soSmart++;
+  } else if (military.toLowerCase() === 'yes' || military.toLowerCase() === 'yes') {
+    alert('Do I look like a ground pounder to you?');
+  } else {
+    alert('Follow directions or lose points! You just lost 1');
+    soSmart--;
+  }
+  var stationed = prompt('I was stationed in Florida while in the Air Force.');
+  if (stationed.toLowerCase() === 'no' || stationed.toLowerCase() === 'n') {
+    alert('Yeehaw! You got that one right, partner!');
+    soSmart++;
+  } else if (stationed.toLowerCase() === 'yes' || stationed.toLowerCase() === 'y') {
+    alert('Nope, but I did grow up there. #FloridaMan');
+  } else {
+      alert('Follow directions or lose points! You just lost 1');
+      soSmart--;
+  }
+  var university = prompt('I studied Electronic Media at UTEP.');
+  if (university.toLowerCase() === 'yes' || university.toLowerCase() === 'y') {
+    alert('Correct! Go Miners!');
+    soSmart++;
+  } else if (university.toLowerCase() === 'no' || university.toLowerCase() === 'n') {
+    alert('How dare you doubt my education!');
+  } else {
+    alert('Follow directions or lose points! You just lost 1');
+    soSmart--;
+  }
+  var television = prompt('Did you know, I\'ve worked in television?');
+  if (television.toLowerCase() === 'yes' || television.toLowerCase() === 'y') {
+    alert('It is really not as glamorous as it sounds.');
+    soSmart++;
+  } else if (television.toLowerCase() === 'no' || television.toLowerCase() === 'n') {
+    alert('Actually, I did. It was a lot of working graveyard shifts in really cold rooms.');
+  } else {
+    alert('Follow directions or lose points! You just lost 1');
+    soSmart--;
+  }
+  var spacey = prompt('My first program was in C# automating the calibration process for propulsion systems used in inter-galactic space travel.')
+  if (spacey.toLowerCase() === 'no' || spacey.toLowerCase() === 'n') {
+    alert('Right, it was just for DRABs for old pick-up trucks. But a guy can dream, can\'t he?');
+    soSmart++;
+  } else if (spacey.toLowerCase() === 'yes' || spacey.toLowerCase() === 'y') {
+    alert('No, I didn\'t. But that would have been really cool though.');
+  } else {
+    alert('Follow directions or lose points! You just lost 1');
+    soSmart--;
+  }
+  var jobSkills = prompt('A good portion of my career, I\'ve worked as an electronic technician.');
+  if (jobSkills.toLowerCase() === 'yes' || jobSkills.toLowerCase() === 'y') {
+    alert('It is really not as glamorous as it sounds.');
+    soSmart++;
+  } else if (jobSkills.toLowerCase() === 'no' || jobSkills.toLowerCase() === 'n') {
+    alert('Incorrect. I\'ve worked as an electronic technician in various fields for about 7 years.');
+  } else {
+    alert('Follow directions or lose points! You just lost 1');
+    soSmart--;
+  }
+  var student = prompt('Now, almost 20 years into my career, I\'m back to being a student at General Assembly, studying software development.');
+  if (student.toLowerCase() === 'no' || student.toLowerCase() === 'n') {
+    alert('Correct! I almost went to GA, but then I saw learned how much better Code Fellows is.');
+    soSmart++;
+  } else if (student.toLowerCase() === 'yes' || student.toLowerCase() === 'y') {
+    alert('Wrong, I\'m not at General Assembly! You see me sitting here in the room with you, right?');
+  } else {
+    alert('Follow directions or lose points! You just lost 1');
+    soSmart--;
+  }
+  if (soSmart === 7) {
+    alert('You got all 7 answers right! What are you, some kind of stalker, ' + username + '?');
+  } else if (soSmart < 7 && soSmart > 3) {
+    alert(soSmart + ' points. I see you\'ve noticed me, ' + username + '. I must say, I am flattered!');
+  } else if (soSmart > 0 && soSmart <= 3) {
+    alert('You only scored a measely ' + soSmart + 'points! You don\'t know me, ' + username + '!');
+  } else if (soSmart <= 0) {
+    alert('Your score is... ' + soSmart + '! You don\'t even care! Do you, ' + username + '!');
+  } else {
+    alert('Why do you got to go and break my quiz ' + username + '? See me after class.')
   }
 }
