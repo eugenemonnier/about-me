@@ -1,4 +1,6 @@
 body {
+  /* font-family: 'Times New Roman', Times, serif; */
+  font-family: Helvetica, sans-serif;
   background-color: #1a3b60; /* color picked from suit portion of profile pic */
 }
 header {
@@ -38,7 +40,7 @@ footer {
   font-size: 0.9em;
   vertical-align: middle;
   position: absolute;
-  bottom: -250px;
+  bottom: -400px;
   width: 100%;
 }
   img {
