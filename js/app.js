@@ -5,6 +5,7 @@ var drunk = false;
 var randomNum = 50; //set randomNum to 50 for testing purposes
 var i = 0;
 var soSmart = 0;
+var iLikeBeer = ['sour', 'stout', 'barleywine', 'brown ale', 'porter', 'gose', 'scotch ale'];
 
 //make Read My Mind & Quiz links variables
 var mindGameLink = document.getElementById('mind');
@@ -152,7 +153,8 @@ function mindGame() {
 quizLink.addEventListener('click', quiz); 
 
 // quiz function with score counter
-function quiz() {
+function quiz() { 
+  // Check value of military and provide response based on that value
   alert('So you think you know me? Let us put that to the test! Aswer yes or no.');
   var military = prompt('I served in the Marine Corps.');
   if (military.toLowerCase() === 'no' || military.toLowerCase() === 'n') {
@@ -164,6 +166,7 @@ function quiz() {
     alert('Follow directions or lose points! You just lost 1');
     soSmart--;
   }
+  // Check value of stationed and provide response based on that value
   var stationed = prompt('I was stationed in Florida while in the Air Force.');
   if (stationed.toLowerCase() === 'no' || stationed.toLowerCase() === 'n') {
     alert('Yeehaw! You got that one right, partner!');
@@ -174,6 +177,7 @@ function quiz() {
       alert('Follow directions or lose points! You just lost 1');
       soSmart--;
   }
+  // Check value of university and provide response based on that value
   var university = prompt('I studied Electronic Media at UTEP.');
   if (university.toLowerCase() === 'yes' || university.toLowerCase() === 'y') {
     alert('Correct! Go Miners!');
@@ -184,6 +188,7 @@ function quiz() {
     alert('Follow directions or lose points! You just lost 1');
     soSmart--;
   }
+  // Check value of television and provide response based on that value
   var television = prompt('Did you know, I\'ve worked in television?');
   if (television.toLowerCase() === 'yes' || television.toLowerCase() === 'y') {
     alert('It is really not as glamorous as it sounds.');
@@ -194,6 +199,7 @@ function quiz() {
     alert('Follow directions or lose points! You just lost 1');
     soSmart--;
   }
+  // Check value of spacey and provide response based on that value
   var spacey = prompt('My first program was in C# automating the calibration process for propulsion systems used in inter-galactic space travel.')
   if (spacey.toLowerCase() === 'no' || spacey.toLowerCase() === 'n') {
     alert('Right, it was just for DRABs for old pick-up trucks. But a guy can dream, can\'t he?');
@@ -204,19 +210,10 @@ function quiz() {
     alert('Follow directions or lose points! You just lost 1');
     soSmart--;
   }
-  var jobSkills = prompt('A good portion of my career, I\'ve worked as an electronic technician.');
-  if (jobSkills.toLowerCase() === 'yes' || jobSkills.toLowerCase() === 'y') {
-    alert('It is really not as glamorous as it sounds.');
-    soSmart++;
-  } else if (jobSkills.toLowerCase() === 'no' || jobSkills.toLowerCase() === 'n') {
-    alert('Incorrect. I\'ve worked as an electronic technician in various fields for about 7 years.');
-  } else {
-    alert('Follow directions or lose points! You just lost 1');
-    soSmart--;
-  }
+  // Check value of student and provide response based on that value
   var student = prompt('Now, almost 20 years into my career, I\'m back to being a student at General Assembly, studying software development.');
   if (student.toLowerCase() === 'no' || student.toLowerCase() === 'n') {
-    alert('Correct! I almost went to GA, but then I saw learned how much better Code Fellows is.');
+    alert('Correct! I almost went to GA, but then I learned how much better Code Fellows is.');
     soSmart++;
   } else if (student.toLowerCase() === 'yes' || student.toLowerCase() === 'y') {
     alert('Wrong, I\'m not at General Assembly! You see me sitting here in the room with you, right?');
@@ -224,6 +221,18 @@ function quiz() {
     alert('Follow directions or lose points! You just lost 1');
     soSmart--;
   }
+  // Check value of craftBeer looping through iLikeBeer array and provide response based on that value
+  var craftBeer = prompt('"I drink beer. I like beer. Guess a style of beer that I like.')
+  for(i = 0; i < iLikeBeer.length; i++) {
+    if(craftBeer.toLowerCase() === iLikeBeer[i]){
+      alert('Oh I do like those... You\'re making me thirsty.');
+      soSmart++;
+      break;
+    } else if (craftBeer.toLowerCase() !== iLikeBeer[i] && i === 6) {
+      alert('That\'s not really one of my favorites. But as long as it is a craft beer, I\'ll give it a shot!');
+    }
+  }
+    // Check value of soSmart and provide response based on that value
   if (soSmart === 7) {
     alert('You got all 7 answers right! What are you, some kind of stalker, ' + username + '?');
   } else if (soSmart < 7 && soSmart > 3) {

@@ -5,6 +5,9 @@ header {
   text-align: center;
   font-size: large;
 }
+nav {
+  font-weight: bolder;
+}
 ul, ol {
   padding: 10px; 
   background: rgba(184,172,127,0.75);  /* color picked from tie portion of profile pic */
@@ -35,7 +38,7 @@ footer {
   font-size: 0.9em;
   vertical-align: middle;
   position: absolute;
-  bottom: -270px;
+  bottom: -250px;
   width: 100%;
 }
   img {
