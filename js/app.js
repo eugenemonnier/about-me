@@ -169,7 +169,7 @@ function quiz() {
   // Check value of stationed and provide response based on that value
   var stationed = prompt('I was stationed in Florida while in the Air Force.');
   if (stationed.toLowerCase() === 'no' || stationed.toLowerCase() === 'n') {
-    alert('Yeehaw! You got that one right, partner!');
+    alert('Yeehaw! You got that one right, partner! It was actually Texas!');
     soSmart++;
   } else if (stationed.toLowerCase() === 'yes' || stationed.toLowerCase() === 'y') {
     alert('Nope, but I did grow up there. #FloridaMan');
@@ -222,7 +222,7 @@ function quiz() {
     soSmart--;
   }
   // Check value of craftBeer looping through iLikeBeer array and provide response based on that value
-  var craftBeer = prompt('"I drink beer. I like beer. Guess a style of beer that I like.')
+  var craftBeer = prompt('"I drink beer. I like beer." Guess a style of beer that I like.')
   for(i = 0; i < iLikeBeer.length; i++) {
     if(craftBeer.toLowerCase() === iLikeBeer[i]){
       alert('Oh I do like those... You\'re making me thirsty.');
