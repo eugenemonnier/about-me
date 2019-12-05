@@ -233,6 +233,7 @@ function quiz() {
     } else if (craftBeer.toLowerCase() !== iLikeBeer[i] && i === 6) {
       alert('That\'s not really one of my favorites. But as long as it is a craft beer, I\'ll give it a shot!');
     }
+  }
   // Adds all values of iLikeBeer to the variable allMyBeers and adds a comma and space between each value 
   for(i = 0; i < iLikeBeer.length; i++) {
     allMyBeers = iLikeBeer[i] + ', ';
