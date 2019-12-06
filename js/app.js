@@ -20,7 +20,7 @@ var quizObj = [
     answer: 'no',
     notAnswer: 'yes',
     correct: 'Aim high, my friend!',
-    wrong: 'Follow directions or lose points! You just lost 1',
+    wrong: 'Do I look like a ground pounder to you?',
     invalid: 'Follow directions or lose points! You just lost 1',
   },
   {

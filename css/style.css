@@ -34,13 +34,14 @@ a:hover {
   border-bottom: 2px solid #1a3b60; /* color picked from suit portion of profile pic */
 }
 footer {
+  background-color: #1a3b60;
   text-align: center;
   padding: 0;
   color: rgba(184,172,127); /* color picked from tie portion of profile pic */
   font-size: 0.9em;
   vertical-align: middle;
-  position: absolute;
-  bottom: -400px;
+  position: relative;
+  bottom: 10px;
   width: 100%;
 }
   img {
