@@ -212,6 +212,7 @@ function quiz() {
       alert(quizObj[i].wrong);
     } else {
       alert(quizObj[i].invalid);
+      soSmart--;
     }
   }
   studentFun();
