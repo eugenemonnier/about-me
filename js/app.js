@@ -1,17 +1,61 @@
 'use strict';
 
-// global variable
-var drunk = false;
-var randomNum = 50; //set randomNum to 50 for testing purposes
+// global variables
+var drunk;
+var randomNum;
 var i = 0;
 var soSmart = 0;
 var iLikeBeer = ['sour', 'stout', 'barleywine', 'brown ale', 'porter', 'gose', 'scotch ale'];
 var allMyBeers = '';
+var response;
 
 //make Read My Mind & Quiz links variables
 var mindGameLink = document.getElementById('mind');
 var quizLink = document.getElementById('quiz');
 
+// Object array of fist 5 questions of quiz
+var quizObj = [
+  {
+    question: 'I served in the Marine Corps.',
+    answer: 'no',
+    notAnswer: 'yes',
+    correct: 'Aim high, my friend!',
+    wrong: 'Follow directions or lose points! You just lost 1',
+    invalid: 'Follow directions or lose points! You just lost 1',
+  },
+  {
+    question: 'I was stationed in Florida while in the Air Force.',
+    answer: 'no',
+    notAnswer: 'yes',
+    correct: 'Yeehaw! You got that one right, partner! It was actually Texas!',
+    wrong: 'Nope, but I did grow up there. #FloridaMan',
+    invalid: 'Follow directions or lose points! You just lost 1',
+  },
+  {
+    question: 'I studied Electronic Media at UTEP.',
+    answer: 'yes',
+    notAnswer: 'no',
+    correct: 'Correct! Go Miners!',
+    wrong: 'How dare you doubt my education!',
+    invalid: 'Follow directions or lose points! You just lost 1',
+  },
+  {
+    question: 'Did you know, I\'ve worked in television?',
+    answer: 'yes',
+    notAnswer: 'no',
+    correct: 'It is really not as glamorous as it sounds.',
+    wrong: 'Actually, I did. It was a lot of working graveyard shifts in really cold rooms.',
+    invalid: 'Follow directions or lose points! You just lost 1',
+  },
+  {
+    question: 'My first program was in C# automating the calibration process for propulsion systems used in inter-galactic space travel.',
+    answer: 'no',
+    notAnswer: 'yes',
+    correct: 'Right, it was just for DRABs for old pick-up trucks. But a guy can dream, can\'t he?',
+    wrong: 'No, I didn\'t. But that would have been really cool though.',
+    invalid: 'Follow directions or lose points! You just lost 1',
+  }
+];
 
 // Greet the user
 var greeting = 'Hello, friend.';
@@ -33,11 +77,12 @@ if (username.toLowerCase() === 'mr. robot' || username.toLowerCase() === 'mr rob
 } else if (username.toLowerCase() === 'michelle') {
   alert('Everyone look busy!');
 } else if (username.toLowerCase() === 'eugene') {
-  alert('Careful with that ax, ' + username);
+  alert('Careful with that ax, ' + username + '.');
 } else {
-  alert('Welcome to my site, ' + username + '.');
+  alert('Howdy strange! Welcome to my site, ' + username + '.');
 }
 
+// Silly questions start here
 alert('Please answer either yes or no to the following questions.');
 
 // Ask user how they feel and store it to the variable drFeelGood
@@ -70,6 +115,7 @@ if (gotPaid.toLowerCase() === 'y' || gotPaid.toLowerCase() === 'yes') {
 } else {
   alert('Seriously let\'s get you to see a doctor, right away.');
 }
+
 // Ask user if it is time to get a drink and store response to variable beerOclock.
 var beerOclock = prompt('Well, it has certainly been a long day. Time to get a drink, ' + username + '?');
 console.log('The user\'s response to getting a drink was: ' + beerOclock);
@@ -151,94 +197,30 @@ function mindGame() {
   }
 }
 
+
 // add event listener to quizLink so when it is clicked the function quiz runs
 quizLink.addEventListener('click', quiz);
 
 // quiz function with score counter
 function quiz() {
-  airForceFun();
-  stationedFun();
-  universityFun();
-  televisionFun();
-  spaceyFun();
+  for(var i = 0; i < 5; i++) {
+    response = prompt(quizObj[i].question);
+    if(response.toLowerCase() === quizObj[i].answer || response.toLowerCase() === quizObj[i].answer.slice(0, 1)) {
+      alert(quizObj[i].correct);
+      soSmart++;
+    } else if(response.toLowerCase() === quizObj[i].notAnswer || response.toLowerCase() === quizObj[i].notAnswer.slice(0, 1)) {
+      alert(quizObj[i].wrong);
+    } else {
+      alert(quizObj[i].invalid);
+    }
+  }
   studentFun();
   craftBeerFun();
   allMyBeersFun();
   soSmartFun();
 }
 
-// Check value of military and provide response based on that value
-function airForceFun(){
-  alert('So you think you know me? Let us put that to the test! Aswer yes or no.');
-  var military = prompt('I served in the Marine Corps.');
-  if (military.toLowerCase() === 'no' || military.toLowerCase() === 'n') {
-    alert('Aim high, my friend!');
-    soSmart++;
-  } else if (military.toLowerCase() === 'y' || military.toLowerCase() === 'yes') {
-    alert('Do I look like a ground pounder to you?');
-  } else {
-    alert('Follow directions or lose points! You just lost 1');
-    soSmart--;
-  }
-}
-// Check value of stationed and provide response based on that value
-
-function stationedFun(){
-  var stationed = prompt('I was stationed in Florida while in the Air Force.');
-  if (stationed.toLowerCase() === 'no' || stationed.toLowerCase() === 'n') {
-    alert('Yeehaw! You got that one right, partner! It was actually Texas!');
-    soSmart++;
-  } else if (stationed.toLowerCase() === 'yes' || stationed.toLowerCase() === 'y') {
-    alert('Nope, but I did grow up there. #FloridaMan');
-  } else {
-    alert('Follow directions or lose points! You just lost 1');
-    soSmart--;
-  }
-}
-// Check value of university and provide response based on that value
-
-function universityFun(){
-  var university = prompt('I studied Electronic Media at UTEP.');
-  if (university.toLowerCase() === 'yes' || university.toLowerCase() === 'y') {
-    alert('Correct! Go Miners!');
-    soSmart++;
-  } else if (university.toLowerCase() === 'no' || university.toLowerCase() === 'n') {
-    alert('How dare you doubt my education!');
-  } else {
-    alert('Follow directions or lose points! You just lost 1');
-    soSmart--;
-  }
-}
-// Check value of television and provide response based on that value
-
-function televisionFun(){
-  var television = prompt('Did you know, I\'ve worked in television?');
-  if (television.toLowerCase() === 'yes' || television.toLowerCase() === 'y') {
-    alert('It is really not as glamorous as it sounds.');
-    soSmart++;
-  } else if (television.toLowerCase() === 'no' || television.toLowerCase() === 'n') {
-    alert('Actually, I did. It was a lot of working graveyard shifts in really cold rooms.');
-  } else {
-    alert('Follow directions or lose points! You just lost 1');
-    soSmart--;
-  }
-}
-// Check value of spacey and provide response based on that value
-
-function spaceyFun(){
-  var spacey = prompt('My first program was in C# automating the calibration process for propulsion systems used in inter-galactic space travel.');
-  if (spacey.toLowerCase() === 'no' || spacey.toLowerCase() === 'n') {
-    alert('Right, it was just for DRABs for old pick-up trucks. But a guy can dream, can\'t he?');
-    soSmart++;
-  } else if (spacey.toLowerCase() === 'yes' || spacey.toLowerCase() === 'y') {
-    alert('No, I didn\'t. But that would have been really cool though.');
-  } else {
-    alert('Follow directions or lose points! You just lost 1');
-    soSmart--;
-  }
-}
-// Check value of student and provide response based on that value
-
+// Function: Ask questin & check value of student and provide response based on that value
 function studentFun(){
   var student = prompt('Now, almost 20 years into my career, I\'m back to being a student at General Assembly, studying software development.');
   if (student.toLowerCase() === 'no' || student.toLowerCase() === 'n') {
@@ -251,8 +233,8 @@ function studentFun(){
     soSmart--;
   }
 }
-// Check value of craftBeer looping through iLikeBeer array and provide response based on that value
 
+// Function: Ask questin & check value of craftBeer looping through iLikeBeer array and provide response based on that value
 function craftBeerFun(){
   var craftBeer = prompt('"I drink beer. I like beer." Guess a style of beer that I like.');
   for(i = 0; i < 6; i++) {
@@ -267,6 +249,7 @@ function craftBeerFun(){
     }
   }
 }
+
 // Adds all values of iLikeBeer to the variable allMyBeers and adds a comma and space between each value
 function allMyBeersFun(){
   for(i = 0; i < iLikeBeer.length; i++) {
@@ -278,7 +261,6 @@ function allMyBeersFun(){
   }
 
   // Removes the trailing space and comma from allMyBeers
-
   allMyBeers = allMyBeers.substring(0, allMyBeers.length - 2);
   alert('My (probably not) complete list of favorite beer types are ' + allMyBeers + '.');
 }
