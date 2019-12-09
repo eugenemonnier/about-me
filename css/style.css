@@ -1,5 +1,5 @@
 body {
-  /* font-family: 'Times New Roman', Times, serif; */
+  
   font-family: Helvetica, sans-serif;
   background-color: #1a3b60; /* color picked from suit portion of profile pic */
 }
@@ -16,10 +16,10 @@ ul, ol {
   margin-top: 15px;
 }
 ol {
-  line-height: 20px;
+  line-height: 22px;
   text-align: center;
   font-size: large;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   color: #1a3b60;
 }
 li {
@@ -45,22 +45,25 @@ footer {
   bottom: 0px;
   width: 100%;
 }
-  img {
-    width: 250px;
-    display: block;
-    margin: 15px auto 0px;
-    border-radius: 50%;
-    border: 2px solid black;
-  }
-  article {
-    font-size: 20px;
-    max-width: 500px;
-    padding: 20px;
-    margin: 30px auto;
-    background-color: rgba(200,200,200,0.25);
-    border-radius: 15px;
-    line-height: 25px;
-  }
-  strong {
-    font-weight: bolder;
-  }
+img {
+  width: 250px;
+  display: block;
+  margin: 15px auto 0px;
+  border-radius: 50%;
+  border: 2px solid black;
+}
+article {
+  color: #002146; /* color picked from suit portion of profile pic */
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 20px;
+  font-weight: 600;
+  max-width: 500px;
+  padding: 20px;
+  margin: 30px auto;
+  background-color: rgba(215, 220, 237, 0.36); /* color picked from shirt*/
+  border-radius: 15px;
+  line-height: 25px;
+}
+strong {
+  font-weight: bolder;
+}

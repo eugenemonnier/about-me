@@ -1,13 +1,12 @@
 'use strict';
 
 // global variables
-var drunk;
-var randomNum;
+var username, drunk, randomNum, response;
 var i = 0;
 var soSmart = 0;
 var iLikeBeer = ['sour', 'stout', 'barleywine', 'brown ale', 'porter', 'gose', 'scotch ale'];
 var allMyBeers = '';
-var response;
+var requiredResonse = true;
 
 //make Read My Mind & Quiz links variables
 var mindGameLink = document.getElementById('mind');
@@ -62,8 +61,13 @@ var greeting = 'Hello, friend.';
 alert(greeting);
 
 // Ask user their name and store it to the variable username
-var username = prompt('What is your name?');
-console.log('The user\'s name is ' + username);
+// Requires user enter a name or will not proceed.
+while(requiredResonse) {
+  username = prompt('What is your name?');
+  if(typeof(username) === 'string') {
+    requiredResonse = false;
+  }
+}
 
 // check user username for particular answers and return custom responses
 if (username.toLowerCase() === 'mr. robot' || username.toLowerCase() === 'mr robot') {
@@ -87,7 +91,6 @@ alert('Please answer either yes or no to the following questions.');
 
 // Ask user how they feel and store it to the variable drFeelGood
 var drFeelGood = prompt('Are you feeling good today?');
-console.log('The user\'s response to whether they are feeling good today was: ' + drFeelGood);
 
 // Check drFeelGood variable for specific reponse
 if (drFeelGood.toLowerCase() === 'y' || drFeelGood.toLowerCase() === 'yes') {
@@ -100,7 +103,6 @@ if (drFeelGood.toLowerCase() === 'y' || drFeelGood.toLowerCase() === 'yes') {
 
 // Ask user if they have any money on them and store it to variable gotPaid
 var gotPaid = prompt('While I\'ve got you here. Do you have any cash on you?');
-console.log('The user\'s response to whether they have cash on them was: ' + gotPaid);
 
 // Check gotPaid variable for specific reponse
 if (gotPaid.toLowerCase() === 'y' || gotPaid.toLowerCase() === 'yes') {
@@ -118,7 +120,6 @@ if (gotPaid.toLowerCase() === 'y' || gotPaid.toLowerCase() === 'yes') {
 
 // Ask user if it is time to get a drink and store response to variable beerOclock.
 var beerOclock = prompt('Well, it has certainly been a long day. Time to get a drink, ' + username + '?');
-console.log('The user\'s response to getting a drink was: ' + beerOclock);
 
 // Check value of beerOclock and provide response based on that value
 if ((beerOclock.toLowerCase() === 'y' || beerOclock.toLowerCase() === 'yes') && (gotPaid.toLowerCase() === 'y' || gotPaid.toLowerCase() === 'yes')) {
@@ -134,7 +135,6 @@ if ((beerOclock.toLowerCase() === 'y' || beerOclock.toLowerCase() === 'yes') && 
 
 // Ask user if they drink beer and store response to variable areYouCool.
 var areYouCool = prompt('Oh, hold up. You drink beer, right?');
-console.log('The user\'s response to whether they have cash on them was: ' + areYouCool);
 
 // Check value of areYouCool and provide response based on that value
 if ((beerOclock.toLowerCase() === 'y' || beerOclock.toLowerCase() === 'yes') && (gotPaid.toLowerCase() === 'y' || gotPaid.toLowerCase() === 'yes')
@@ -164,33 +164,24 @@ function mindGame() {
   var guess = parseInt(prompt('Guess a number between 0 & 10. You have 4 guesses.'));
   if (guess === randomNum) {
     alert('Good guess ' + username + '! Have you been tested for psychic abilities?');
-    console.log(guess + ' ' + randomNum + ' ' + i + 'psychic');
   } else if (guess !== randomNum) {
     for(i = 1; i <= 4; i++) {
       guess = parseInt(guess);
-      console.log(guess + ' ' + randomNum + ' ' + i + 'base');
       if ((guess === randomNum) && (i < 4)) {
-        console.log(guess + ' ' + randomNum + ' ' + i + 'winner');
         alert('Ding! Ding! Ding! We have a winner!');
         break;
       } else if ((guess > randomNum) && (i < 4)) {
-        console.log(guess + ' ' + randomNum + ' ' + i + 'lower');
         guess = prompt('That\'s not it. The number I am looking for is lower. You are on attempt ' + (i + 1) + '.');
       } else if ((guess < randomNum) && (i < 4)) {
-        console.log(guess + ' ' + randomNum + ' ' + i + ' higher');
         guess = prompt('That\'s not it. The number I am looking for is higher. You are on attempt ' + (i + 1) + '.');
       } else if ((guess === randomNum) && (i >= 4)) {
-        console.log(guess + ' ' + randomNum + ' ' + i + ' nick');
         alert('You got it in just the nick of time!');
       } else if ((guess !== randomNum) && (i >= 4)) {
-        console.log(guess + ' ' + randomNum + ' ' + i + ' fortress');
         alert('Valiant effort but you were unable to penetrate my mind fortress! I was thinking of the number ' + randomNum + '.');
       } else if (isNaN(guess)) {
-        console.log(guess + ' ' + randomNum + ' ' + i + 'bad player');
         alert('That\'s not a number! No game for you!');
         break;
       } else {
-        console.log(guess + ' ' + randomNum + ' ' + i + ' battleship');
         alert('You broke my battleship! Please tell me how you did that!');
       }
     }
